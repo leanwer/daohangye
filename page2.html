@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <html lang="zh-cn">
+<head>
+  <meta charset="UTF-8">
+  <title>Leanwer's 导航页</title>
+  <link rel="stylesheet" href="./CSS/style.css">
+  <base target="_blank">
+
+</head>
+
+<body>
+
+  <div class="container" style="padding: 26px;"><!--导航块-->
+    <nav>
+      <a href="page1.html" target="_self">页面</a>
+      <a href="page2.html" target="_self">工具</a>
+      <a href="page3.html" target="_self">素材</a>
+      <a href="page4.html" target="_self">软件</a>
+      <a href="page5.html" target="_self">关于</a>
+      <a href="page6.html" target="_self">其他</a>
+
+      <!-- 设置滑块的初始位置 -->
+      <div class="animation start-page2"></div>
+    </nav>
+  </div>
+
+  <div class="gallery" id="imageGallery"></div>
+  <script src="./js/data2.js"></script>
+  <script>
+    // JavaScript 代码
+    window.addEventListener("DOMContentLoaded", function () {
+      const imageGallery = document.getElementById("imageGallery");
+
+      for (let imageData of data) {
+        const imageCard = document.createElement("div");
+        imageCard.classList.add("image-card");
+
+        const link = document.createElement("a");
+        link.href = imageData.link;
+
+        const image = document.createElement("img");
+        image.src = "./img/img2/" + imageData.image; // 添加 "/img/img1/" 到图片路径
+        image.alt = imageData.name;
+
+        const name = document.createElement("span");
+        name.textContent = imageData.name;
+
+        link.appendChild(image);
+        imageCard.appendChild(link);
+        imageCard.appendChild(name);
+        imageGallery.appendChild(imageCard);
+      }
+    });
+  </script>
+</body>
+
+</html>
